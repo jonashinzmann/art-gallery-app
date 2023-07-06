@@ -1,5 +1,8 @@
 import useSWR from "swr";
 import Image from "next/image";
+import ArtPieces from "@/components/ArtPieces";
+import ArtPiecePreview from "@/components/ArtPiecePreview";
+import Link from "next/link";
 
 export default function HomePage() {
   async function fetcher() {
@@ -20,22 +23,26 @@ export default function HomePage() {
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
-
+  const pieces = data.map((artPiece) => {
+    return artPiece.name;
+  });
+  const name = data.map((artPiece) => {
+    return artPiece.name;
+  });
+  const title = data.map((artPiece) => {
+    return artPiece.title;
+  });
+  const image = data.map((artPiece) => {
+    return artPiece;
+  });
   return (
     <>
       {" "}
       <h1>Art Gallery</h1>
-      <ul>
-        <li>
-          {data[0].artist} {data[0].name}{" "}
-          <Image
-            src={data[0].imageSource}
-            height={data[0].dimensions.height}
-            width={data[0].dimensions.width}
-            alt=""
-          />
-        </li>
-      </ul>
+      <ArtPieces pieces={pieces} />
+      <Link href="/ArtPiecePreview">
+        Orange Red and Green Abstract Painting
+      </Link>
     </>
   );
 }
