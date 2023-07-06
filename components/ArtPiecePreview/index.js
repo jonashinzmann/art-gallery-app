@@ -9,7 +9,7 @@ export default function ArtPiecePreview({ image, artist, title }) {
         src={image.imageSource}
         height={image.dimensions.height * 0.1}
         width={image.dimensions.width * 0.1}
-        alt={image.name}
+        alt={image.title}
       />
     </>
   );
