@@ -23,9 +23,7 @@ export default function HomePage() {
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
-  const pieces = data.map((artPiece) => {
-    return artPiece.name;
-  });
+  const pieces = data;
   const name = data.map((artPiece) => {
     return artPiece.name;
   });
@@ -40,9 +38,6 @@ export default function HomePage() {
       {" "}
       <h1>Art Gallery</h1>
       <ArtPieces pieces={pieces} />
-      <Link href="/ArtPiecePreview">
-        Orange Red and Green Abstract Painting
-      </Link>
     </>
   );
 }

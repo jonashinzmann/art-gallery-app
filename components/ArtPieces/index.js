@@ -9,8 +9,8 @@ export default function ArtPieces({ pieces }) {
       {pieces.map((artPiece) => {
         return (
           <fragment key={uid()}>
-            <Link href="/ArtPiecePreview">
-              <li>{artPiece}</li>
+            <Link href={`/art-pieces/${artPiece.slug}`}>
+              <li>{artPiece.name}</li>
             </Link>
           </fragment>
         );
