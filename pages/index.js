@@ -39,7 +39,6 @@ export default function HomePage() {
   });
 
   const randomPiece = getRandomPiece();
-
   return (
     <>
       <h1>Art Gallery</h1>
@@ -47,6 +46,7 @@ export default function HomePage() {
       <Spotlight
         image={randomPiece.imageSource}
         artist={randomPiece.artist}
+        title={randomPiece.name}
       ></Spotlight>
     </>
   );
