@@ -5,6 +5,9 @@ import ArtPiecePreview from "@/components/ArtPiecePreview";
 import Link from "next/link";
 import Spotlight from "@/components/Spotlight";
 
+
+export default function SpotlightPage() {
+
 export default function HomePage() {
   async function fetcher() {
     const response = await fetch("https://example-apis.vercel.app/api/art");
@@ -39,9 +42,13 @@ export default function HomePage() {
   });
 
   const randomPiece = getRandomPiece();
+
   return (
     <>
       <h1>Art Gallery</h1>
+
+      {/*<Spotlight image={placeholder} artist={placeholder} />*/}
+
       <ArtPieces pieces={pieces} />
       <Spotlight
         image={randomPiece.imageSource}
