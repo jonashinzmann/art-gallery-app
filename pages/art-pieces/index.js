@@ -4,12 +4,12 @@ import ArtPieces from "@/components/ArtPieces";
 import ArtPiecePreview from "@/components/ArtPiecePreview";
 import Link from "next/link";
 
-export default function SpotlightPage() {
+export default function SpotlightPage({ pieces }) {
   return (
     <>
       {" "}
       <h1>Art Gallery</h1>
-      {/*<Spotlight image={placeholder} artist={placeholder} />*/}
+      <ArtPieces pieces={pieces} />
     </>
   );
 }
