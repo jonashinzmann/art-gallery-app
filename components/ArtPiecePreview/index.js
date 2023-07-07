@@ -1,6 +1,7 @@
 import Image from "next/image";
+import FavoriteButton from "../FavoriteButton";
 
-export default function ArtPiecePreview({ image, artist, title }) {
+export default function ArtPiecePreview({ image, artist, title, isFavorite }) {
   return (
     <>
       <h1>Artist: {artist}</h1>
@@ -11,6 +12,7 @@ export default function ArtPiecePreview({ image, artist, title }) {
         width={image.dimensions.width * 0.1}
         alt={image.title}
       />
+      <FavoriteButton isFavorite={isFavorite} />
     </>
   );
 }
