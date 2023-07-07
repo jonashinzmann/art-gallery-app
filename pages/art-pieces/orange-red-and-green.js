@@ -1,7 +1,7 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview";
 import useSWR from "swr";
 
-export default function Page() {
+export default function Page({ artPiecesInfo }) {
   async function fetcher(url) {
     const response = await fetch(url);
     const parsedJson = await response.json();
@@ -20,9 +20,10 @@ export default function Page() {
   }
   return (
     <ArtPiecePreview
-      image={data[0]}
-      title={data[0].name}
-      artist={data[0].artist}
+      image={artPiecesInfo[0]}
+      title={artPiecesInfo[0].name}
+      artist={artPiecesInfo[0].artist}
+      isFavorite={artPiecesInfo[0].isFavorite}
     />
   );
 }

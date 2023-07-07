@@ -5,11 +5,11 @@ import ArtPiecePreview from "@/components/ArtPiecePreview";
 import Link from "next/link";
 import Spotlight from "@/components/Spotlight";
 
-export default function SpotlightPage({ pieces }) {
+export default function SpotlightPage({ artPiecesInfo }) {
   function getRandomPiece() {
-    const length = pieces.length;
+    const length = artPiecesInfo.length;
     const randomIndex = Math.floor(Math.random() * length);
-    return pieces[randomIndex];
+    return artPiecesInfo[randomIndex];
   }
 
   const randomPiece = getRandomPiece();
@@ -22,6 +22,7 @@ export default function SpotlightPage({ pieces }) {
         image={randomPiece.imageSource}
         artist={randomPiece.artist}
         title={randomPiece.name}
+        isFavorite={randomPiece.isFavorite}
       ></Spotlight>
     </>
   );
