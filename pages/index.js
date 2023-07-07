@@ -5,7 +5,7 @@ import ArtPiecePreview from "@/components/ArtPiecePreview";
 import Link from "next/link";
 import Spotlight from "@/components/Spotlight";
 
-export default function SpotlightPage({ artPiecesInfo }) {
+export default function SpotlightPage({ artPiecesInfo, handleToggleFavorite }) {
   function getRandomPiece() {
     const length = artPiecesInfo.length;
     const randomIndex = Math.floor(Math.random() * length);
@@ -23,6 +23,8 @@ export default function SpotlightPage({ artPiecesInfo }) {
         artist={randomPiece.artist}
         title={randomPiece.name}
         isFavorite={randomPiece.isFavorite}
+        slug={randomPiece.slug}
+        onToggleFavorite={handleToggleFavorite}
       ></Spotlight>
     </>
   );

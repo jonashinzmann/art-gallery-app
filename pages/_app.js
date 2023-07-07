@@ -150,11 +150,23 @@ export default function App({ Component, pageProps }) {
     myFetcher
   );
 
+  console.log("artPiecesInfo:", artPiecesInfo);
+
   if (error !== undefined) {
     return <h2>{error.message}</h2>;
   }
   if (isLoading) {
     return <h2>Loading...</h2>;
+  }
+
+  function handleToggleFavorite(slug) {
+    setArtPiecesInfo(
+      artPiecesInfo.map((artPiece) =>
+        artPiece.slug === slug
+          ? { ...artPiece, isFavorite: artPiece.isFavorite }
+          : artPiece
+      )
+    );
   }
 
   return (
@@ -164,7 +176,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         pieces={data}
         artPiecesInfo={artPiecesInfo}
-        setArtPiecesInfo={setArtPiecesInfo}
+        handleToggleFavorite={handleToggleFavorite}
       />
       <Layout />
     </>
